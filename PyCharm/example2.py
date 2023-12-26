@@ -1,12 +1,17 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-def mul(a):
-    def helper(b):
-        return a * b
+def fun1(a):
+    x = a * 3
 
-    return helper
+    def fun2(b):
+        nonlocal x
+        return b + x
+
+    return fun2
 
 
 if __name__ == "__main__":
-    mul(5)(2)
+    test_fun = fun1(4)
+    test_fun(7)
+    print(test_fun)
